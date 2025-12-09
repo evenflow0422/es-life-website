@@ -56,7 +56,7 @@
               <p>
                 Hesap kurarak nasıl ilerlemeler katlettiğini görebilirsin! Aşağıdaki yazıya tıklayarak profiline göz at!
               </p>
-              <a href="#" class="feature-link">Git</a>
+              <a href="#" class="feature-link">Git</a> <!-- hesap kuruluysa profil.php değilse signin.php-->
             </div>
           </div>
 
