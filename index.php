@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -9,7 +9,6 @@
     <meta name="keywords" content="fit,sağlık,sağlıklı yaşam, egzersiz, vücut kitle ölçme,kilo vermek">
     <meta name="author" content="Ezginur Ünver & Serena Üzümcü">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
-    <!--ikon emoji şimdilik ileride???-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,23 +20,24 @@
   </head>
   <body>
     <header id="header">
-      <nav class=navbar>
+      <nav class="navbar">
         <div class="logo">ES-FIT</div>
         <ul class="nav-links">
-          <li><a href="#">Ana Sayfa</a></li>
+          <li><a href="index.php">Ana Sayfa</a></li>
           <li><a href="kesfet.php">Keşfet</a></li>
           <li><a href="#footer">İletişim</a></li>
-          <!-- Oturum açıldığında gözüksün -->
-          <li><a href="profil.php">Profil</a></li>
-          <!--Oturum açılmadıysa profil yerine gözüksün-->
-          <li><a href="login.php">Giriş Yap</a></li>
-          <li><a href="signin.php">Kayıt Ol</a></li>
+          <?php if (isset($_SESSION['user_id'])): ?>
+            <li><a href="profil.php">Profilim</a></li>
+            <li><a href="logout.php">Çıkış</a></li>
+          <?php else: ?>
+            <li><a href="login.php">Giriş Yap</a></li>
+            <li><a href="signin.php">Kayıt Ol</a></li>
+          <?php endif; ?>
         </ul>
       </nav>
     </header>
-    <!--user select ile renk seç sonra (kırmızı arkaplan beyaz font)-->
     <main id="main" class="main">
-      <div class="hero">  <!--hero box-->
+      <div class="hero">
         <div class="hero-content">
           <h1>"Sağlık lüks değil, hayat tarzıdır."</h1>
           <p>
@@ -46,7 +46,6 @@
         </div>
         <div class="hero-image"></div>
       </div>
-
       <div class="features">
         <div class="features-grid">
           <div class="feature-card">
@@ -56,19 +55,17 @@
               <p>
                 Hesap kurarak nasıl ilerlemeler katlettiğini görebilirsin! Aşağıdaki yazıya tıklayarak profiline göz at!
               </p>
-              <a href="#" class="feature-link">Git</a> <!-- hesap kuruluysa profil.php değilse signin.php-->
+              <a href="<?php echo isset($_SESSION['user_id']) ? 'profil.php' : 'signin.php'; ?>" class="feature-link">Git</a>
             </div>
           </div>
-
           <div class="feature-card">
             <div class="feature-image texture-green"></div>
             <div class="feature-content">
               <h3>BMI Hesaplama</h3>
               <p>İdeal kilo ve sağlık durumunuzla ilgili detaylı bilgi edinin.</p>
-              <a href="#" class="feature-link">Git</a>
+              <a href="kesfet.php" class="feature-link">Git</a>
             </div>
           </div>
-
           <div class="feature-card">
             <div class="feature-image gradient-teal"></div>
             <div class="feature-content">
@@ -77,12 +74,11 @@
                 Sağlık ve fitness alanında bilgi seviyenizi artırın ve
                 hedeflerinize rahatla ulaşın.
               </p>
-              <a href="#" class="feature-link">Git</a>
+              <a href="kesfet.php" class="feature-link">Git</a>
             </div>
           </div>
         </div>
       </div>
-
       <section class="cta-section">
         <div class="cta-content">
           <h2>Bugün suyunu içtin mi?</h2>
@@ -109,7 +105,6 @@
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p>&copy; 2025 ES-FIT. Tüm hakları saklıdır.</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Design: Figma</p>
