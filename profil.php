@@ -215,6 +215,9 @@ $age = $today->diff($birthDate)->y;
               <i class="fas fa-dumbbell"></i>
               <h3>Henüz Antrenman Kaydı Yok</h3>
               <p>Antrenmanlarını kaydet ve gelişimini gör!</p>
+              <a href="antrenman-olustur.php" class="card-button">
+                 Antrenman Oluştur
+              </a>
             </div>
             <?php endif; ?>
           </div>

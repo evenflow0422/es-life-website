@@ -78,7 +78,7 @@
                 </ul>
               </div>
               <a href="https://www.nefisyemektarifleri.com/liste/her-pazartesi-degil-bugun-basliyoruz-diyet-tarifleri/" target="_blank" class="education-link">
-                <i class="fas fa-external-link-alt"></i> Sağlıklı Tarifler İçin
+                <i class="fas fa-external-link-alt"></i> Sağlıklı tarifler için
               </a>
             </div>
           </div>
@@ -114,7 +114,7 @@
                 </ul>
               </div>
               <a href="https://www.spookynooksports.com/blog/manheim/proper-form-for-weightlifting-and-exercising" target="_blank" class="education-link">
-                <i class="fas fa-external-link-alt"></i> Doğru Egzersiz Formlarını Öğrenmek İçin
+                <i class="fas fa-external-link-alt"></i> Doğru egzersiz formlarını öğrenmek için
               </a>
             </div>
           </div>
@@ -150,35 +150,8 @@
                 </ul>
               </div>
               <a href="https://www.youtube.com/results?search_query=meditasyon+egzersizleri+türkçe" target="_blank" class="education-link">
-                <i class="fas fa-external-link-alt"></i> Meditasyon Egzersizleri için
+                <i class="fas fa-external-link-alt"></i> Meditasyon egzersizleri için
               </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ek Kaynaklar Bölümü -->
-        <div class="resources-section">
-          <h2>Ek Kaynaklar ve Öneriler</h2>
-          <div class="resources-grid">
-            <div class="resource-card">
-              <i class="fas fa-book"></i>
-              <h4>Önerilen Kitaplar</h4>
-              <p>Sağlık ve fitness konusunda uzmanların önerdiği temel kaynaklardan yararlanın.</p>
-            </div>
-            <div class="resource-card">
-              <i class="fas fa-video"></i>
-              <h4>Video Eğitimler</h4>
-              <p>Profesyonel eğitmenlerden egzersiz tekniklerini videolarla öğrenin.</p>
-            </div>
-            <div class="resource-card">
-              <i class="fas fa-mobile-alt"></i>
-              <h4>Mobil Uygulamalar</h4>
-              <p>Günlük takip ve motivasyon için önerilen mobil uygulamalardan faydalanın.</p>
-            </div>
-            <div class="resource-card">
-              <i class="fas fa-user-md"></i>
-              <h4>Uzman Desteği</h4>
-              <p>Diyetisyen, fizyoterapist ve personal trainer ile çalışmanın faydalarını keşfedin.</p>
             </div>
           </div>
         </div>
