@@ -41,7 +41,7 @@
         <div class="hero-content">
           <h1>"Sağlık lüks değil, hayat tarzıdır."</h1>
           <p>
-            Burada amaç yazıyor sitenin işte falan filan. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur modi est ab error fugiat! Ducimus, culpa alias! Nam quisquam explicabo iusto numquam similique officia hic exercitationem, placeat quos doloremque aut?
+            Sitemizin amacı; kullanıcıları sağlıklı yaşama yönlendirmektir. Kullanıcılarımız sitemizi kullanarak BMI hesaplamasını yapabilir ona uygun hayat tarzını düzenleyebilir. Ayrıyeten eğitim alanından kendine katkı sağlayabilir ve ilerlemesini de görebilir.
           </p>
         </div>
         <div class="hero-image"></div>
@@ -74,7 +74,7 @@
                 Sağlık ve fitness alanında bilgi seviyenizi artırın ve
                 hedeflerinize rahatla ulaşın.
               </p>
-              <a href="kesfet.php" class="feature-link">Git</a>
+              <a href="egitim.php" class="feature-link">Git</a>
             </div>
           </div>
         </div>

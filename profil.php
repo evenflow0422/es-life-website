@@ -15,10 +15,28 @@ $user = new User();
 $calculator = new HealthCalculator();
 $exercise = new Exercise();
 
+// Antrenman silme işlemi
+$deleteMessage = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_workout'])) {
+    $workoutId = intval($_POST['workout_id']);
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("DELETE FROM user_workouts WHERE workout_id = :workout_id AND user_id = :user_id");
+        $stmt->execute([
+            ':workout_id' => $workoutId,
+            ':user_id' => $_SESSION['user_id']
+        ]);
+        header('Location: profil.php?deleted=1');
+        exit();
+    } catch (Exception $e) {
+        $deleteMessage = 'error';
+    }
+}
+
 $userInfo = $user->getUserInfo($_SESSION['user_id']);
 $latestBMI = $calculator->getLatestBMI($_SESSION['user_id']);
 $bmiHistory = $calculator->getUserBMIHistory($_SESSION['user_id'], 5);
-$recentWorkouts = $exercise->getUserWorkouts($_SESSION['user_id'], 5);
+$recentWorkouts = $exercise->getUserWorkouts($_SESSION['user_id'], 10);
 
 $birthDate = new DateTime($userInfo['birth_date']);
 $today = new DateTime();
@@ -67,6 +85,13 @@ $age = $today->diff($birthDate)->y;
           <h1>Hoş Geldin, <?php echo htmlspecialchars($userInfo['first_name']); ?>!</h1>
           <p>Profilin ve ilerleme kaydın</p>
         </div>
+
+        <?php if (isset($_GET['deleted']) && $_GET['deleted'] == 1): ?>
+          <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i>
+            Antrenman başarıyla silindi!
+          </div>
+        <?php endif; ?>
 
         <div class="profile-container">
           <div class="profile-info-card">
@@ -156,13 +181,26 @@ $age = $today->diff($birthDate)->y;
             <?php endif; ?>
             <?php if (!empty($recentWorkouts)): ?>
             <div class="stat-card">
-              <h3><i class="fas fa-dumbbell"></i> Son Antrenmanlar</h3>
+              <div class="card-header-with-button">
+                <h3><i class="fas fa-dumbbell"></i> Son Antrenmanlar</h3>
+                <a href="antrenman-olustur.php" class="new-workout-btn">
+                  <i class="fas fa-plus-circle"></i> Yeni Antrenman
+                </a>
+              </div>
               <div class="workout-list">
                 <?php foreach ($recentWorkouts as $workout): ?>
                 <div class="workout-item">
                   <div class="workout-header">
-                    <span class="workout-name"><?php echo htmlspecialchars($workout['exercise_name']); ?></span>
-                    <span class="workout-date"><?php echo date('d.m.Y', strtotime($workout['workout_date'])); ?></span>
+                    <div class="workout-info">
+                      <span class="workout-name"><?php echo htmlspecialchars($workout['exercise_name']); ?></span>
+                      <span class="workout-date"><?php echo date('d.m.Y', strtotime($workout['workout_date'])); ?></span>
+                    </div>
+                    <form method="POST" class="delete-workout-form" onsubmit="return confirm('Bu antrenmanı silmek istediğinize emin misiniz?');">
+                      <input type="hidden" name="workout_id" value="<?php echo $workout['workout_id']; ?>">
+                      <button type="submit" name="delete_workout" class="delete-workout-btn" title="Sil">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </form>
                   </div>
                   <div class="workout-details">
                     <span class="workout-badge"><?php echo $workout['group_name']; ?></span>
